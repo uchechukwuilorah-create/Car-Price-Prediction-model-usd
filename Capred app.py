@@ -13,7 +13,7 @@ st.header('Enter Car Details for Prediction')
 
 # Input fields for features
 year = st.slider('Manufacturing Year', min_value=2000, max_value=2024, value=2015)
-present_price = st.number_input('Present Price (in Lakhs)', min_value=0.1, max_value=50.0, value=5.0, step=0.1)
+present_price = st.number_input('Present Price (in Dollars($))', min_value=0.1, max_value=50.0, value=5.0, step=0.1)
 kms_driven = st.number_input('Kilometers Driven', min_value=0, max_value=500000, value=30000, step=1000)
 
 # Make prediction
@@ -21,7 +21,7 @@ if st.button('Predict Selling Price'):
     # Create a DataFrame from the inputs
     input_data = pd.DataFrame([{
         'Year': year,
-        'Present_Price': present_price,
+        'Present_Price_USD': present_price,
         'Kms_Driven': kms_driven
     }])
 
@@ -33,4 +33,5 @@ if st.button('Predict Selling Price'):
 st.markdown("""
 This app predicts the selling price of a car based on its manufacturing year,
 present price, and kilometers driven using a pre-trained machine learning model.
+
 """)
